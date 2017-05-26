@@ -49,7 +49,7 @@ server.register(require('inert'), (err) => {
     method: 'GET',
     path: '/whoami',
     handler: function (request, reply) {
-      let ip = request.info.address;
+      let ip = request.info.remoteAddress;
       let language = request.headers["accept-language"];
       let software = getSoftware(request.headers["user-agent"]);
       reply({"ipaddress": ip, "language": language, "software": software})
